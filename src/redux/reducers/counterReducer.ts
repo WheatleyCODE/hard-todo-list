@@ -1,10 +1,11 @@
+import { ICounter, ICounterAction } from './../../types/types';
 import * as constants from '../action/constants'
 
 const initialState = {
   counter: 0
 }
 
-export function counterReducer(state:any = initialState, action: any) {
+export function counterReducer(state:ICounter = initialState, action: ICounterAction) {
 
   switch (action.type) {
     case constants.SUM:
