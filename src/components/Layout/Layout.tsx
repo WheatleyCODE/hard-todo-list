@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { AddNumberAC, SubAC, SumAC, AddAsyncAC } from '../../redux/action/actions'
+import Header from '../Header/Header'
 import './Layout.scss'
 
 function App(props:any) {
@@ -9,6 +10,7 @@ function App(props:any) {
     <>
       <div className="Layout">
         {/* Header */}
+        <Header />
         {/* Routers */}
         {/* Footer */}
       </div>
