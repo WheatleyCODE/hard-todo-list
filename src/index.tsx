@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import App from './App/App'
+import Layout from './components/Layout/Layout'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 import { createStore, applyMiddleware, compose } from 'redux'
@@ -23,7 +23,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <React.StrictMode>
-        <App />
+        <Layout />
       </React.StrictMode>
     </BrowserRouter>
   </Provider>,
