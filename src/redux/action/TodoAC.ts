@@ -21,3 +21,11 @@ export function DeleteTodoAC(id: number) {
     id,
   }
 }
+
+export function ChangeColorAC(id: number, color: string) {
+  return {
+    type: constants.CHENGE_COLOR,
+    id,
+    color,
+  }
+}

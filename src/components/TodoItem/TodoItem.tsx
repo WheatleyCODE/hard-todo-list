@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ITodo } from '../../types/types'
+import SelectColor from '../SelectColor/SelectColor'
 import './TodoItem.scss'
 
 type TodoItemProps = {
   itodo : ITodo,
   onCompletedClick: (id: number) => void
   onDeleteTodo: (id: number) => void
+  onChangeColor: (id: number, color: string) => void
 }
 
-const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo }: TodoItemProps) => {
+const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo, onChangeColor }: TodoItemProps) => {
 
   const style = itodo.completed ? 'completed' : ''
+
+  const [show, setShow] = useState(false)
+
+  const onClickHandler = () => {
+    setShow(prev => !prev)
+  }
 
   return (
     <div className="TodoItem">
@@ -23,9 +31,10 @@ const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo }: TodoItemProps) => {
         </span>
       </div>
       <div className="TodoItem__button-container">
-        <div className="TodoItem__color-box">
+        <div onClick={onClickHandler} className="TodoItem__color-box">
           <i className={`fa fa-circle ${itodo.color}`} />
         </div>
+        { show ? <SelectColor id={itodo.id} onChangeColor={onChangeColor} onClickHandler={onClickHandler} /> : null}
         <div onClick={() => onDeleteTodo(itodo.id)} className="TodoItem__trash-box">
           <i className="fa fa-trash-o" />
         </div>

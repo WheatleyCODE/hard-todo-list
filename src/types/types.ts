@@ -30,7 +30,8 @@ export interface IState {
 }
 
 export interface IAddTodoAC {
+  color: string
   id: number
   payload: ITodo
-  type: typeof constants.ADD_TODO | typeof constants.COMPLITED_CLICK | typeof constants.DELETE_TODO
+  type: typeof constants.ADD_TODO | typeof constants.COMPLITED_CLICK | typeof constants.DELETE_TODO | typeof constants.CHENGE_COLOR
 }

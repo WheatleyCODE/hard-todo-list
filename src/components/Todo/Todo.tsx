@@ -3,9 +3,9 @@ import React from 'react'
 import './Todo.scss'
 import { IState, ITodo } from '../../types/types'
 import TodoItem from '../TodoItem/TodoItem'
-import { AddToDoAC, CompletedClickAC, DeleteTodoAC } from '../../redux/action/TodoAC'
+import { AddToDoAC, ChangeColorAC, CompletedClickAC, DeleteTodoAC } from '../../redux/action/TodoAC'
 
-const Todo = ({ todo, onAddTodo, onCompletedClick, onDeleteTodo }: any) => {
+const Todo = ({ todo, onAddTodo, onCompletedClick, onDeleteTodo, onChangeColor }: any) => {
   const newtodo = {
     text: 'Сделать Кашку',
     id: 30,
@@ -15,7 +15,7 @@ const Todo = ({ todo, onAddTodo, onCompletedClick, onDeleteTodo }: any) => {
 
   // console.log(todo, onAddTodo)
   const todoItems = todo.map((obj: ITodo) => {
-    return <TodoItem key={obj.id} onDeleteTodo={onDeleteTodo} onCompletedClick={onCompletedClick} itodo={obj} />
+    return <TodoItem onChangeColor={onChangeColor} key={obj.id} onDeleteTodo={onDeleteTodo} onCompletedClick={onCompletedClick} itodo={obj} />
   })
   return (
     <div className="todo">
@@ -41,6 +41,7 @@ const mapDipatchToProps = (dispatch: any) => {
     onAddTodo: (newtodo: ITodo) => dispatch(AddToDoAC(newtodo)),
     onCompletedClick: (id: number) => dispatch(CompletedClickAC(id)),
     onDeleteTodo: (id: number) => dispatch(DeleteTodoAC(id)),
+    onChangeColor: (id: number, color: string) => dispatch(ChangeColorAC(id, color))
   }
 }
 
