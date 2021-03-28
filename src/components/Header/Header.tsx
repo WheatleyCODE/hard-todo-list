@@ -33,7 +33,7 @@ const Header: React.FC = () => {
       <Link to="/">
         <h1 className="title">UNLIMITED WEB WORKS!</h1>
       </Link>
-      <div onClick={onclickUserHandler} className="login-icon">
+      <div onClick={onclickUserHandler} className={showUser ? 'login-icon z-index' : 'login-icon'}>
         <i className="fa fa-user-circle-o" aria-hidden="true"/>
       </div>
       <div className="header__sub-header">
