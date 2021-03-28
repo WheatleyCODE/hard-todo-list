@@ -1,4 +1,4 @@
-import * as constants from '../redux/action/constants'
+import * as constants from '../redux/constants/constants'
 
 // Counter
 export interface ICounter {

@@ -1,5 +1,5 @@
 import { ICounter, ICounterAction } from './../../types/types';
-import * as constants from '../action/constants'
+import * as constants from '../constants/constants'
 
 const initialState = {
   counter: 0
