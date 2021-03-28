@@ -39,7 +39,7 @@ const Header: React.FC = () => {
       <div className="header__sub-header">
         <p className="sub-title">Great to-do list</p>
       </div>
-        <CSSTransition
+      <CSSTransition
         in={show}
         timeout={500}
         mountOnEnter
@@ -52,8 +52,17 @@ const Header: React.FC = () => {
         show ? <Backdrop onToggle={onClickHandler} /> : null
       }
       {
-        showUser ?  <UserDrawer /> : null
+        showUser ?  <Backdrop onToggle={onclickUserHandler} /> : null
       }
+      <CSSTransition
+        in={showUser}
+        timeout={300}
+        mountOnEnter
+        unmountOnExit
+        classNames="usd"
+      >
+        <UserDrawer onToggle={onclickUserHandler} />
+      </CSSTransition>
     </div>
   )
 }

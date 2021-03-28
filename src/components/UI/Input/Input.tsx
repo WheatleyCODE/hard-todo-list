@@ -1,9 +1,16 @@
+
 import React from 'react'
 import './Input.scss'
 
-const Input = () => {
+type InputProps = {
+  value: string | number,
+  placeholder: string,
+  type: string,
+}
+
+const Input = ({type, value, placeholder }:InputProps) => {
   return (
-    <input placeholder="Hello!" className="input" type="text"></input>
+    <input value={value} placeholder={placeholder} className="input" type={type}></input>
   )
 }
 

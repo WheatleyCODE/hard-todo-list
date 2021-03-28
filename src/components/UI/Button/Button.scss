@@ -1,6 +1,5 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
-
 .button {
   @include ButtonDiv;
   background-color: $colorLightBlue;
@@ -18,4 +17,9 @@
   &:active {
     border-color: red;
   }
+}
+
+.button.low {
+  font-size: 15px;
+  padding: 8px 15px;
 }
