@@ -10,7 +10,7 @@ type InputProps = {
 
 const Input = ({type, value, placeholder }:InputProps) => {
   return (
-    <input value={value} placeholder={placeholder} className="input" type={type}></input>
+    <input value={value} placeholder={placeholder} className="input" type={type} />
   )
 }
 

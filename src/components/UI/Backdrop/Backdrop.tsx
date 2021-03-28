@@ -7,9 +7,7 @@ type backdropProps = {
 
 const Backdrop = ({ onToggle }:backdropProps) => {
   return (
-    <div onClick={onToggle} className="backdrop">
-
-    </div>
+    <div onClick={onToggle} className="backdrop" />
   )
 }
 

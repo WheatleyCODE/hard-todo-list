@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
 import ToggleMenu from '../UI/ToggleMenu/ToggleMenu'
 import Backdrop from '../UI/Backdrop/Backdrop'
 import UserDrawer from '../UI/UserDrawer/UserDrawer'
-import { Link } from 'react-router-dom'
 import './Header.scss'
 
 const Header: React.FC = () => {
@@ -39,6 +39,7 @@ const Header: React.FC = () => {
       <div className="header__sub-header">
         <p className="sub-title">Great to-do list</p>
       </div>
+
       <CSSTransition
         in={show}
         timeout={500}
@@ -48,12 +49,15 @@ const Header: React.FC = () => {
       >
         <ToggleMenu onToggle={onClickHandler} />
       </CSSTransition>
+
       {
         show ? <Backdrop onToggle={onClickHandler} /> : null
       }
+
       {
         showUser ?  <Backdrop onToggle={onclickUserHandler} /> : null
       }
+      
       <CSSTransition
         in={showUser}
         timeout={300}

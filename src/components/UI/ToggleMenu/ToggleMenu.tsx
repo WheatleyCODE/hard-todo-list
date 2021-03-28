@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { MenuItemGenerator } from '../../../utils/utils'
+import { MenuItemElement } from '../../../types/types'
 import './ToggleMenu.scss'
 
 type toggleMenuProps = {
@@ -7,66 +8,50 @@ type toggleMenuProps = {
 }
 
 const ToggleMenu = ({ onToggle }: toggleMenuProps) => {
+
+  const MenuItemList: MenuItemElement[] = [
+    {
+      path: '/',
+      icon: 'fa fa-home',
+      text: 'Home'
+    },
+    {
+      path: '/todo',
+      icon: 'fa fa-check-square-o',
+      text: 'Todo'
+    },
+    {
+      path: '/red',
+      icon: 'fa fa-circle red',
+      text: 'Red'
+    },
+    {
+      path: '/yellow',
+      icon: 'fa fa-circle yellow',
+      text: 'Yellow'
+    },
+    {
+      path: '/green',
+      icon: 'fa fa-circle green',
+      text: 'Green'
+    },
+    {
+      path: '/grey',
+      icon: 'fa fa-circle grey',
+      text: 'Grey'
+    },
+    {
+      path: '/seatings',
+      icon: 'fa fa-sliders',
+      text: 'Seatings'
+    },
+  ]
+
   return (
     <div className="toggle-menu">
       <nav className="menu">
         <ul>
-          <Link onClick={onToggle} to="/">
-            <li className="item">
-              <i className="fa fa-home" aria-hidden="true" />
-              <span>
-                Home
-              </span>
-            </li>
-          </Link>
-          <Link onClick={onToggle} to="/todo">
-            <li className="item">
-              <i className="fa fa-check-square-o" aria-hidden="true" />
-              <span>
-                Todo
-              </span>
-            </li>
-          </Link>
-          <Link onClick={onToggle} to="/red">
-            <li className="item">
-              <i className="fa fa-circle red" aria-hidden="true" />
-              <span>
-                Red
-              </span>
-            </li>
-          </Link>
-          <Link onClick={onToggle} to="/yellow">
-            <li className="item">
-              <i className="fa fa-circle yellow" aria-hidden="true" />
-              <span>
-                Yellow
-              </span>
-            </li>
-          </Link>
-          <Link onClick={onToggle} to="/green">
-            <li className="item">
-              <i className="fa fa-circle green" aria-hidden="true" />
-              <span>
-                Green
-              </span>
-            </li>
-          </Link>
-          <Link onClick={onToggle} to="/grey">
-            <li className="item">
-              <i className="fa fa-circle grey" aria-hidden="true" />
-              <span>
-                Grey
-              </span>
-            </li>
-          </Link>
-          <Link onClick={onToggle} to="/seatings">
-            <li className="item">
-              <i className="fa fa-sliders" aria-hidden="true" />
-              <span>
-                Seatings
-              </span>
-            </li>
-          </Link>
+          { MenuItemGenerator(MenuItemList, onToggle) }
         </ul>
       </nav>
     </div>

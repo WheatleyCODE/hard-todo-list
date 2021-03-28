@@ -22,9 +22,9 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <React.StrictMode>
+      {/* <React.StrictMode> */}
         <Layout />
-      </React.StrictMode>
+      {/* </React.StrictMode> */}
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
