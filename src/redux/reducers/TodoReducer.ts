@@ -29,17 +29,12 @@ export function todoReducer(state = initialState, action: IAddTodoAC) {
       return newState
 
     case constants.DELETE_TODO: 
-      console.log('constants.DELETE_TODO:')
-      console.log(action.id)
       const ind = newState.findIndex((el) => action.id === el.id)
       newState.splice(ind, 1)
       console.log(newState)
       return newState
     
     case constants.CHENGE_COLOR:
-      console.log('constants.CHENGE_COLOR:')
-      console.log(action.id)
-      console.log(action.color)
       const index = newState.findIndex((el) => action.id === el.id)
       newState[index].color = action.color
     return state

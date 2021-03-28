@@ -1,11 +1,22 @@
 import { connect } from 'react-redux'
-import React from 'react'
+import React, { useState } from 'react'
 import './Todo.scss'
 import { IState, ITodo } from '../../types/types'
 import TodoItem from '../TodoItem/TodoItem'
+import Portal from '../hoc/Portal/Portal'
+import ModalTodo from '../ModalTodo/ModalTodo'
 import { AddToDoAC, ChangeColorAC, CompletedClickAC, DeleteTodoAC } from '../../redux/action/TodoAC'
+import Backdrop from '../UI/Backdrop/Backdrop'
 
 const Todo = ({ todo, onAddTodo, onCompletedClick, onDeleteTodo, onChangeColor }: any) => {
+
+  const [showModal, setShowModal] = useState(false)
+
+  const onClickHadler = () => {
+    setShowModal(prev => !prev)
+    // onAddTodo(newtodo)
+  }
+
   const newtodo = {
     text: 'Сделать Кашку',
     id: 30,
@@ -13,7 +24,6 @@ const Todo = ({ todo, onAddTodo, onCompletedClick, onDeleteTodo, onChangeColor }
     completed: true,
   }
 
-  // console.log(todo, onAddTodo)
   const todoItems = todo.map((obj: ITodo) => {
     return <TodoItem onChangeColor={onChangeColor} key={obj.id} onDeleteTodo={onDeleteTodo} onCompletedClick={onCompletedClick} itodo={obj} />
   })
@@ -21,11 +31,14 @@ const Todo = ({ todo, onAddTodo, onCompletedClick, onDeleteTodo, onChangeColor }
     <div className="todo">
       <div className="block">
           { todoItems }
-        <button onClick={() => onAddTodo(newtodo)} className="addTodo">
+        <button onClick={onClickHadler} className="addTodo">
           <i className="fa fa-plus-square-o" />
           <span>Add todo</span>
         </button>
       </div>
+      <Portal>
+        { showModal ? <><ModalTodo /><Backdrop onToggle={onClickHadler} /></> : null}
+      </Portal>
     </div>
   ) 
 }

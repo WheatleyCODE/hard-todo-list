@@ -27,18 +27,6 @@ const SelectColor = ({ onClickHandler, onChangeColor, id }: SelectorColorProps) 
 
   return (
     <div className="SelectColor">
-      {/* <div  className="color-box">
-        <i className="fa fa-circle red"/>
-      </div>
-      <div onClick={onClickHandler} className="color-box">
-        <i className="fa fa-circle yellow"/>
-      </div>
-      <div onClick={onClickHandler} className="color-box">
-        <i className="fa fa-circle green"/>
-      </div>
-      <div onClick={onClickHandler} className="color-box">
-      <i className="fa fa-circle grey"/>
-      </div> */}
       { colorBoxJsx }
     </div>
   )

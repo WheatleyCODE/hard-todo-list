@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.ModalTodo {
+  width: 1000px;
+  position: absolute;
+  background-color: $colorWhite;
+  border: 1px solid $colorGrey;
+  left: 50%;
+  margin-left: -500px;
+  border-radius: 10px;
+  height: 600px;
+  top:0;
+  margin-top: 250px;
+  padding: 10px;
+  z-index: 22;
+}

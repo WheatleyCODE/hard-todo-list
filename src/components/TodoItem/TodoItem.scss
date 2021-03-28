@@ -26,7 +26,7 @@
     margin-right: 60px;
   }
 
-  &__color-box, &__trash-box, &__completed-box {
+  &__color-box, &__trash-box, &__completed-box, &__update-box {
     width: 35px;
     height: 35px;
     border: 1px solid $colorGrey;
@@ -34,7 +34,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
   }
 
@@ -51,5 +51,9 @@
   &__text-container {
     display: flex;
     align-items: center;
+  }
+
+  &__color-box {
+    margin-right: 20px;
   }
 }
