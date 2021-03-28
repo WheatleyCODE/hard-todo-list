@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+
+.footer {
+  width: 100%;
+  background-color: $colorBlack;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+
+  .title {
+    color: $colorWhite;
+    width: 50%;
+  }
+
+  &__sub-footer {
+    background-color: $colorGrey;
+    height: 60px;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}

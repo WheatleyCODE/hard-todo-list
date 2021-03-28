@@ -1,0 +1,21 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.button {
+  @include ButtonDiv;
+  background-color: $colorLightBlue;
+  border: 2px solid $colorLightBlue;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 30px;
+  transition: all 0.5s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $colorWhite;
+  }
+
+  &:active {
+    border-color: red;
+  }
+}
