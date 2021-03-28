@@ -4,17 +4,18 @@
 .header {
   width: 100%;
   background-color: $colorBlack;
+  position: fixed;
 
   &__sub-header {
     width: 100%;
-    height: 70px;
+    height: 60px;
     background-color: $colorGrey;
   }
 
   .title {
     color: $colorLightBlue;
     text-align: center;
-    padding: 30px 0;
+    padding: 20px 0;
     font-size: 50px;
   }
 

@@ -3,8 +3,8 @@ import { CSSTransition } from 'react-transition-group'
 import ToggleMenu from '../UI/ToggleMenu/ToggleMenu'
 import Backdrop from '../UI/Backdrop/Backdrop'
 import UserDrawer from '../UI/UserDrawer/UserDrawer'
-import './Header.scss'
 import { Link } from 'react-router-dom'
+import './Header.scss'
 
 const Header: React.FC = () => {
 
