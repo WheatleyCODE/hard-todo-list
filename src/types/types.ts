@@ -19,7 +19,7 @@ export type MenuItemElement = {
 
 export interface ITodo {
   text: string,
-  id: string | number,
+  id: number,
   color: string,
   completed: boolean,
 }
@@ -27,4 +27,10 @@ export interface ITodo {
 export interface IState {
   keyOne: ICounter,
   todo: ITodo
+}
+
+export interface IAddTodoAC {
+  id: number
+  payload: ITodo
+  type: typeof constants.ADD_TODO | typeof constants.COMPLITED_CLICK
 }

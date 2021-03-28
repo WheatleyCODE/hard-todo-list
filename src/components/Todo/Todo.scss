@@ -3,7 +3,7 @@
 
 .todo {
   padding-top: 158px;
-  height: 70vh;
+  min-height: 70vh;
   display: flex;
   justify-content: center;
 
@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 60px;
+    padding-top: 100px;
   }
 
   .addTodo {
@@ -22,7 +22,25 @@
     height: 60px;
     border-radius: 5px;
     border: 1px solid $colorGrey;
+    color: $colorGrey;
     font-size: 40px;
     cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      margin-left: 20px;
+      font-size: 30px;
+    }
+
+    &:hover {
+      color: $colorWhite;
+      background-color: $colorGrey;
+      i {
+        color: $colorLightBlue;
+      }
+    }
   }
 }
