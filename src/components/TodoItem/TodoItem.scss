@@ -1,0 +1,54 @@
+@import '../../styles/variables.scss';
+
+.TodoItem {
+  width: 70%;
+  height: 60px;
+  border: 1px solid $colorGrey;
+  background-color: $colorWhite;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  // position: relative;
+  justify-content: space-between;
+
+  span {
+    font-size: 18px;
+  }
+
+  span.completed {
+    text-decoration: line-through;
+  }
+
+
+  &__completed-box {
+    margin-left: 40px;
+    margin-right: 60px;
+  }
+
+  &__color-box, &__trash-box, &__completed-box {
+    width: 35px;
+    height: 35px;
+    border: 1px solid $colorGrey;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  &__trash-box {
+    margin-left: 20px;
+  }
+
+  &__button-container {
+    display: flex;
+    margin-right: 20px;
+  }
+
+  &__text-container {
+    display: flex;
+    align-items: center;
+  }
+}

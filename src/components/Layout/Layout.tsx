@@ -10,7 +10,6 @@ import Todo from '../Todo/Todo'
 import './Layout.scss'
 
 function App(props:any) {
-  console.log(props)
   return (
     <>
       <div className="Layout">

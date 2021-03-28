@@ -14,3 +14,17 @@ export type MenuItemElement = {
   icon: string,
   text: string,
 }
+
+// Todo
+
+export interface ITodo {
+  text: string,
+  id: string | number,
+  color: string,
+  completed: boolean,
+}
+
+export interface IState {
+  keyOne: ICounter,
+  todo: ITodo
+}

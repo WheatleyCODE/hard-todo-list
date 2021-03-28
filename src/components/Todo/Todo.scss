@@ -1,0 +1,28 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.todo {
+  padding-top: 158px;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+
+  .block {
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 60px;
+  }
+
+  .addTodo {
+    @include ButtonDiv;
+    width: 70%;
+    background-color: $colorWhite;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid $colorGrey;
+    font-size: 40px;
+    cursor: pointer;
+  }
+}
