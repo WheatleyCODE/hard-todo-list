@@ -4,10 +4,11 @@ import './TodoItem.scss'
 
 type TodoItemProps = {
   itodo : ITodo,
-  onCompletedClick: (id: string | number) => void
+  onCompletedClick: (id: number) => void
+  onDeleteTodo: (id: number) => void
 }
 
-const TodoItem = ({ itodo, onCompletedClick }: TodoItemProps) => {
+const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo }: TodoItemProps) => {
 
   const style = itodo.completed ? 'completed' : ''
 
@@ -25,7 +26,7 @@ const TodoItem = ({ itodo, onCompletedClick }: TodoItemProps) => {
         <div className="TodoItem__color-box">
           <i className={`fa fa-circle ${itodo.color}`} />
         </div>
-        <div className="TodoItem__trash-box">
+        <div onClick={() => onDeleteTodo(itodo.id)} className="TodoItem__trash-box">
           <i className="fa fa-trash-o" />
         </div>
       </div>

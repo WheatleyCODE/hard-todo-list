@@ -32,5 +32,5 @@ export interface IState {
 export interface IAddTodoAC {
   id: number
   payload: ITodo
-  type: typeof constants.ADD_TODO | typeof constants.COMPLITED_CLICK
+  type: typeof constants.ADD_TODO | typeof constants.COMPLITED_CLICK | typeof constants.DELETE_TODO
 }

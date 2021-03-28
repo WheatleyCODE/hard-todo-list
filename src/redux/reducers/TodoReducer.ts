@@ -22,12 +22,20 @@ export function todoReducer(state = initialState, action: IAddTodoAC) {
     case constants.ADD_TODO:
       newState.push(action.payload)
       return newState
+
     case constants.COMPLITED_CLICK:
       const i = newState.findIndex((el) => action.id === el.id)
       newState[i].completed = !newState[i].completed
+      return newState
+
+    case constants.DELETE_TODO: 
+      console.log('constants.DELETE_TODO:')
+      console.log(action.id)
+      const ind = newState.findIndex((el) => action.id === el.id)
+      newState.splice(ind, 1)
+      console.log(newState)
       
       return newState
-  
     default:
       return state
   }

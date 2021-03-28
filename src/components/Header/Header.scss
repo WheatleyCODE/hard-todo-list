@@ -5,6 +5,10 @@
   width: 100%;
   background-color: $colorBlack;
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   &__sub-header {
     width: 100%;
@@ -17,6 +21,7 @@
     text-align: center;
     padding: 20px 0;
     font-size: 50px;
+    width: 650px;
   }
 
   .sub-title {

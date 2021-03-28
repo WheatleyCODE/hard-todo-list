@@ -14,3 +14,10 @@ export function CompletedClickAC(id: number) {
     id,
   }
 }
+
+export function DeleteTodoAC(id: number) {
+  return {
+    type: constants.DELETE_TODO,
+    id,
+  }
+}
