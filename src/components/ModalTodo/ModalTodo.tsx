@@ -3,28 +3,36 @@ import Input from '../UI/Input/Input'
 import Button from '../UI/Button/Button'
 import SelectColor from '../SelectColor/SelectColor'
 import { ITodoCreator } from '../../types/types'
-import { AddToDoAC } from '../../redux/action/TodoAC'
+import { AddToDoAC, ChangeTodoAC } from '../../redux/action/TodoAC'
 import { connect } from 'react-redux'
 import './ModalTodo.scss'
 
 type ModalTodoProps = {
+  chengeMod?: boolean
+  IdodoCr?: ITodoCreator
   onCloseModal: () => void
   onAddTodo?: (newTodo: ITodoCreator) => void
+  onChangeTodo: (newTodo: ITodoCreator) => void
 }
 
-const ModalTodo = ({ onCloseModal, onAddTodo }: ModalTodoProps) => {
+const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo}: ModalTodoProps) => {
 
-  const ItodoCr: ITodoCreator = {
-    text: 'Выучить JS',
-    id: 1337,
-    color: 'red',
-    completed: false,
-    subTitle: 'Точно выучить!',
-    textArea: 'Я очень хочу выучить JS потому что я хочу быть Frontend разработчиком и лутать горы бабла'
+  let ItodoCreation: ITodoCreator
+  if (IdodoCr) {
+    ItodoCreation = IdodoCr
+  } else {
+    ItodoCreation = {
+      text: 'Выучить JS',
+      id: 1337,
+      color: 'red',
+      completed: false,
+      subTitle: 'Точно выучить!',
+      textArea: 'Я очень хочу выучить JS потому что я хочу быть Frontend разработчиком и лутать горы бабла'
+    }
   }
 
   const [show, setShow] = useState(false)
-  const [todo, setTodo] = useState(ItodoCr)
+  const [todo, setTodo] = useState(ItodoCreation)
 
   const onToggleColors = () => {
     setShow(prev => !prev)
@@ -64,6 +72,11 @@ const ModalTodo = ({ onCloseModal, onAddTodo }: ModalTodoProps) => {
       onCloseModal()
   }
 
+  const onChangeTodoAndClose = () => {
+    onChangeTodo(todo)
+    onCloseModal()
+  }
+
   return (
     <div className="ModalTodo">
       <button onClick={onCloseModal} className="ModalTodo__close-button">
@@ -85,7 +98,9 @@ const ModalTodo = ({ onCloseModal, onAddTodo }: ModalTodoProps) => {
       { show ? <SelectColor id={1000} onChangeColor={() => {}} onChangeTodoCreatorHandler={changeColor} showSelector={() => {}} /> : null}
           <i className={`fa fa-circle ${todo.color}`} />
         </div>
-        <Button onClickHandler={onAddTodoButtonHandler} size={2} text={'Create Todo'} />
+      { chengeMod ? 
+          <Button onClickHandler={onChangeTodoAndClose} size={2} text={'Change Todo'} /> :
+          <Button onClickHandler={onAddTodoButtonHandler} size={2} text={'Create Todo'} /> }
       </div>
     </div>
   )
@@ -93,7 +108,7 @@ const ModalTodo = ({ onCloseModal, onAddTodo }: ModalTodoProps) => {
 function mapDispatchToProps(dispatch: any) {
   return {
     onAddTodo: (newTodo: ITodoCreator) => dispatch(AddToDoAC(newTodo)),
-
+    onChangeTodo: (newTodo: ITodoCreator) => dispatch(ChangeTodoAC(newTodo))
   }
 }
 export default connect(null, mapDispatchToProps)(ModalTodo)

@@ -8,9 +8,10 @@ type TodoItemProps = {
   onCompletedClick: (id: number) => void
   onDeleteTodo: (id: number) => void
   onChangeColor: (id: number, color: string) => void
+  onShowChangedModal: (id: number) => void
 }
 
-const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo, onChangeColor }: TodoItemProps) => {
+const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo, onChangeColor, onShowChangedModal }: TodoItemProps) => {
 
   const style = itodo.completed ? 'completed' : ''
 
@@ -35,7 +36,7 @@ const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo, onChangeColor }: Todo
           <i className={`fa fa-circle ${itodo.color}`} />
         </div>
         { show ? <SelectColor id={itodo.id} onChangeColor={onChangeColor} showSelector={onShowSelector} /> : null}
-        <div className="TodoItem__update-box">
+        <div onClick={() => onShowChangedModal(itodo.id)} className="TodoItem__update-box">
           <i className="fa fa-pencil" />
         </div>
         <div onClick={() => onDeleteTodo(itodo.id)} className="TodoItem__trash-box">

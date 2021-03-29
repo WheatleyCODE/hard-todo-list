@@ -52,6 +52,11 @@ export function todoReducer(state = initialState, action: IAddTodoAC) {
       const index = newState.findIndex((el) => action.id === el.id)
       newState[index].color = action.color
     return state
+
+    case constants.CHANGE_TODO:
+      const indexTODO = newState.findIndex((el) => el.id === action.payload.id)
+      newState[indexTODO] = action.payload
+      return newState
     
     default:
       return state

@@ -18,26 +18,47 @@ type TodoProps = {
 
 const Todo = ({ todo, onCompletedClick, onDeleteTodo, onChangeColor }: TodoProps) => {
 
-  const [showModal, setShowModal] = useState(false)
+  const [showCreateModal, setShowCreateModal] = useState(false)
+  // const [showVieModal, setShowVieModal] = useState(false)
+  const [showChangedModal, setShowChangedModal] = useState(false)
+  const [modal, setModal] = useState(<div />)
 
-  const onShowHandler = () => {
-    setShowModal(prev => !prev)
+
+  const onShowCreateModal = () => {
+    setShowCreateModal(prev => !prev)
+  }
+
+  const onShowChangedModal = (id: number) => {
+    const index = todo.findIndex((el:ITodoCreator) => el.id === id)
+    setModal(<ModalTodo chengeMod={true} IdodoCr={todo[index]} onCloseModal={closeChangedModal} />)
+    setShowChangedModal(prev => !prev)
+  }
+  const closeChangedModal = () => {
+    setShowChangedModal(prev => !prev)
   }
 
   const todoItems = todo.map((obj:ITodoCreator) => {
-    return <TodoItem onChangeColor={onChangeColor} key={obj.id} onDeleteTodo={onDeleteTodo} onCompletedClick={onCompletedClick} itodo={obj} />
+    return <TodoItem
+      onChangeColor={onChangeColor}
+      key={obj.id} onDeleteTodo={onDeleteTodo}
+      onCompletedClick={onCompletedClick}
+      itodo={obj}
+      onShowChangedModal={onShowChangedModal}
+    />
   })
   return (
     <div className="todo">
       <div className="block">
           { todoItems }
-        <button onClick={onShowHandler} className="addTodo">
+        <button onClick={onShowCreateModal} className="addTodo">
           <i className="fa fa-plus-square-o" />
           <span>Add todo</span>
         </button>
       </div>
       <Portal>
-        { showModal ? <><ModalTodo onCloseModal={onShowHandler} /><Backdrop onToggle={onShowHandler} /></> : null}
+        { showCreateModal ? <><ModalTodo onCloseModal={onShowCreateModal} /><Backdrop onToggle={onShowCreateModal} /></> : null }
+        {/* { showVieModal ?  <ModalTodo onCloseModal={() => {}} /> : null } */}
+        { showChangedModal ?  modal : null }
       </Portal>
     </div>
   ) 

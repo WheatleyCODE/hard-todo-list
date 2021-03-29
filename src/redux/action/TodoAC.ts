@@ -1,10 +1,17 @@
-import { ITodo } from './../../types/types';
+import { ITodoCreator } from './../../types/types';
 import * as constants from '../constants/constants'
 
-export function AddToDoAC(newtodo: ITodo) {
+export function AddToDoAC(newTodo: ITodoCreator) {
   return {
     type: constants.ADD_TODO,
-    payload: newtodo,
+    payload: newTodo,
+  }
+}
+
+export function ChangeTodoAC(newTodo: ITodoCreator) {
+  return {
+    type: constants.CHANGE_TODO,
+    payload: newTodo
   }
 }
 

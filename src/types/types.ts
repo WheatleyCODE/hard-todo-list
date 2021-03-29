@@ -23,7 +23,7 @@ export interface IAddTodoAC {
   color: string
   id: number
   payload: ITodoCreator
-  type: typeof constants.ADD_TODO | typeof constants.COMPLITED_CLICK | typeof constants.DELETE_TODO | typeof constants.CHENGE_COLOR
+  type: typeof constants.ADD_TODO | typeof constants.COMPLITED_CLICK | typeof constants.DELETE_TODO | typeof constants.CHENGE_COLOR | typeof constants.CHANGE_TODO
 }
 
 export interface ITodoCreator extends ITodo {
