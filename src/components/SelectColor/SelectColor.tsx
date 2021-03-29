@@ -2,21 +2,19 @@ import React from 'react'
 import './SelectColor.scss'
 
 type SelectorColorProps = {
-  onClickHandler: () => void
+  showSelector: () => void
   onChangeColor: (id: number, color: string) => void
   id: number
   onChangeTodoCreatorHandler?: (color:string) => void
 }
 
-//onClick={() => onChangeColor(20, 'red')}
-
-const SelectColor = ({ onClickHandler, onChangeColor, id, onChangeTodoCreatorHandler }: SelectorColorProps) => {
+const SelectColor = ({ showSelector, onChangeColor, id, onChangeTodoCreatorHandler }: SelectorColorProps) => {
   const colorBox: string[] = [
     'red', 'yellow', 'green', 'grey'
   ]
 
   const onClickChanger = (color: string):void => {
-    onClickHandler()
+    showSelector()
     onChangeColor(id, color)
     if (onChangeTodoCreatorHandler) {
       onChangeTodoCreatorHandler(color)

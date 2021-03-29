@@ -34,7 +34,7 @@ const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo, onChangeColor }: Todo
         <div onClick={onClickHandler} className="TodoItem__color-box">
           <i className={`fa fa-circle ${itodo.color}`} />
         </div>
-        { show ? <SelectColor id={itodo.id} onChangeColor={onChangeColor} onClickHandler={onClickHandler} /> : null}
+        { show ? <SelectColor id={itodo.id} onChangeColor={onChangeColor} showSelector={onClickHandler} /> : null}
         <div className="TodoItem__update-box">
           <i className="fa fa-pencil" />
         </div>
