@@ -16,7 +16,7 @@ const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo, onChangeColor }: Todo
 
   const [show, setShow] = useState(false)
 
-  const onClickHandler = () => {
+  const onShowSelector = () => {
     setShow(prev => !prev)
   }
 
@@ -31,10 +31,10 @@ const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo, onChangeColor }: Todo
         </span>
       </div>
       <div className="TodoItem__button-container">
-        <div onClick={onClickHandler} className="TodoItem__color-box">
+        <div onClick={onShowSelector} className="TodoItem__color-box">
           <i className={`fa fa-circle ${itodo.color}`} />
         </div>
-        { show ? <SelectColor id={itodo.id} onChangeColor={onChangeColor} showSelector={onClickHandler} /> : null}
+        { show ? <SelectColor id={itodo.id} onChangeColor={onChangeColor} showSelector={onShowSelector} /> : null}
         <div className="TodoItem__update-box">
           <i className="fa fa-pencil" />
         </div>
