@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Input from '../UI/Input/Input'
 import Button from '../UI/Button/Button'
-import SelectColor from '../SelectColor/SelectColor'
+import SelectColor from '../UI/SelectColor/SelectColor'
 import { ITodoCreator } from '../../types/types'
 import { AddToDoAC, ChangeTodoAC } from '../../redux/action/TodoAC'
 import { connect } from 'react-redux'

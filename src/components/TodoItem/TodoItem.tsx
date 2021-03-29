@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ITodo } from '../../types/types'
-import SelectColor from '../SelectColor/SelectColor'
+import SelectColor from '../UI/SelectColor/SelectColor'
 import './TodoItem.scss'
 
 type TodoItemProps = {
