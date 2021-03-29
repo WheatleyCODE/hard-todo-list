@@ -32,6 +32,11 @@ export interface IState {
 export interface IAddTodoAC {
   color: string
   id: number
-  payload: ITodo
+  payload: ITodoCreator
   type: typeof constants.ADD_TODO | typeof constants.COMPLITED_CLICK | typeof constants.DELETE_TODO | typeof constants.CHENGE_COLOR
+}
+
+export interface ITodoCreator extends ITodo {
+  subTitle: string
+  textArea: string
 }

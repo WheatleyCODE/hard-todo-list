@@ -5,7 +5,7 @@ import { IState, ITodo } from '../../types/types'
 import TodoItem from '../TodoItem/TodoItem'
 import Portal from '../hoc/Portal/Portal'
 import ModalTodo from '../ModalTodo/ModalTodo'
-import { AddToDoAC, ChangeColorAC, CompletedClickAC, DeleteTodoAC } from '../../redux/action/TodoAC'
+import { ChangeColorAC, CompletedClickAC, DeleteTodoAC } from '../../redux/action/TodoAC'
 import Backdrop from '../UI/Backdrop/Backdrop'
 
 const Todo = ({ todo, onAddTodo, onCompletedClick, onDeleteTodo, onChangeColor }: any) => {
@@ -51,7 +51,6 @@ const mapStateToProps = (state: IState) => {
 
 const mapDipatchToProps = (dispatch: any) => {
   return {
-    onAddTodo: (newtodo: ITodo) => dispatch(AddToDoAC(newtodo)),
     onCompletedClick: (id: number) => dispatch(CompletedClickAC(id)),
     onDeleteTodo: (id: number) => dispatch(DeleteTodoAC(id)),
     onChangeColor: (id: number, color: string) => dispatch(ChangeColorAC(id, color))

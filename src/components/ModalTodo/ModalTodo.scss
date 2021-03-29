@@ -30,6 +30,31 @@
     }
   }
 
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    .input-box {
+      width: 70%;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 0;
+    width: Calc(100% - 60px);
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 30px;
+    padding-bottom: 30px;
+  }
+
   &__sub-header {
     width: 100%;
     height: 30px;
@@ -61,5 +86,13 @@
       transition: all 0.2s;
       transform: rotate(10deg);
     }
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    resize: none;
+    outline: none;
   }
 }

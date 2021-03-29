@@ -31,7 +31,7 @@ const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo, onChangeColor }: Todo
         </span>
       </div>
       <div className="TodoItem__button-container">
-      <div onClick={onClickHandler} className="TodoItem__color-box">
+        <div onClick={onClickHandler} className="TodoItem__color-box">
           <i className={`fa fa-circle ${itodo.color}`} />
         </div>
         { show ? <SelectColor id={itodo.id} onChangeColor={onChangeColor} onClickHandler={onClickHandler} /> : null}
