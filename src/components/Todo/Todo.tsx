@@ -19,7 +19,7 @@ type TodoProps = {
 const Todo = ({ todo, onCompletedClick, onDeleteTodo, onChangeColor }: TodoProps) => {
 
   const [showCreateModal, setShowCreateModal] = useState(false)
-  // const [showVieModal, setShowVieModal] = useState(false)
+  const [showVieModal, setShowVieModal] = useState(false)
   const [showChangedModal, setShowChangedModal] = useState(false)
   const [modal, setModal] = useState(<div />)
 
@@ -37,8 +37,18 @@ const Todo = ({ todo, onCompletedClick, onDeleteTodo, onChangeColor }: TodoProps
     setShowChangedModal(prev => !prev)
   }
 
+  const onShowVieModal = (id: number) => {
+    const index = todo.findIndex((el:ITodoCreator) => el.id === id)
+    setModal(<ModalTodo vieMod={true} IdodoCr={todo[index]} onCloseModal={closeVieModal} />)
+    setShowVieModal(prev => !prev)
+  }
+  const closeVieModal = () => {
+    setShowVieModal(prev => !prev)
+  }
+
   const todoItems = todo.map((obj:ITodoCreator) => {
     return <TodoItem
+      onShowVieModal={onShowVieModal}
       onChangeColor={onChangeColor}
       key={obj.id} onDeleteTodo={onDeleteTodo}
       onCompletedClick={onCompletedClick}
@@ -57,7 +67,7 @@ const Todo = ({ todo, onCompletedClick, onDeleteTodo, onChangeColor }: TodoProps
       </div>
       <Portal>
         { showCreateModal ? <><ModalTodo onCloseModal={onShowCreateModal} /><Backdrop onToggle={onShowCreateModal} /></> : null }
-        {/* { showVieModal ?  <ModalTodo onCloseModal={() => {}} /> : null } */}
+        { showVieModal ?  <>{ modal }<Backdrop onToggle={closeVieModal} /></> : null }
         { showChangedModal ?  <>{ modal }<Backdrop onToggle={closeChangedModal} /></> : null }
       </Portal>
     </div>

@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import './ModalTodo.scss'
 
 type ModalTodoProps = {
+  vieMod?: boolean
   chengeMod?: boolean
   IdodoCr?: ITodoCreator
   onCloseModal: () => void
@@ -15,7 +16,7 @@ type ModalTodoProps = {
   onChangeTodo: (newTodo: ITodoCreator) => void
 }
 
-const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo}: ModalTodoProps) => {
+const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, vieMod}: ModalTodoProps) => {
 
   let ItodoCreation: ITodoCreator
   if (IdodoCr) {
@@ -77,6 +78,16 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo}:
     onCloseModal()
   }
 
+  let button;
+  if (chengeMod) {
+    button = <Button onClickHandler={onChangeTodoAndClose} size={2} text={'Change Todo'} />
+  } else if (vieMod) {
+    button = null
+  } else {
+    button = <Button onClickHandler={onAddTodoButtonHandler} size={2} text={'Create Todo'} />
+  }
+
+
   return (
     <div className="ModalTodo">
       <button onClick={onCloseModal} className="ModalTodo__close-button">
@@ -98,9 +109,7 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo}:
       { show ? <SelectColor id={1000} onChangeColor={() => {}} onChangeTodoCreatorHandler={changeColor} showSelector={() => {}} /> : null}
           <i className={`fa fa-circle ${todo.color}`} />
         </div>
-      { chengeMod ? 
-          <Button onClickHandler={onChangeTodoAndClose} size={2} text={'Change Todo'} /> :
-          <Button onClickHandler={onAddTodoButtonHandler} size={2} text={'Create Todo'} /> }
+      { button }
       </div>
     </div>
   )
