@@ -8,11 +8,11 @@ import './Header.scss'
 
 const Header: React.FC = () => {
 
-  const [ show, setShow ] = useState(false)
+  const [ showBars, setShowBars ] = useState(false)
   const [ showUser, showUserShow ] = useState(false)
 
-  const onClickHandler = () => {
-    setShow(prev => !prev)
+  const showBarsMenu = () => {
+    setShowBars(prev => !prev)
   }
 
   const onclickUserHandler = () => {
@@ -21,14 +21,14 @@ const Header: React.FC = () => {
 
   const styles: string[] = [ 'bars' ]
 
-  if (show) {
+  if (showBars) {
     styles.push('active')
   }
 
   return (
     <div className="header">
       <div className={styles.join(' ')}>
-        <i onClick={onClickHandler} className="fa fa-bars" aria-hidden="true" />
+        <i onClick={showBarsMenu} className="fa fa-bars" aria-hidden="true" />
       </div>
       <Link to="/">
         <h1 className="title">UNLIMITED WEB WORKS!</h1>
@@ -41,17 +41,17 @@ const Header: React.FC = () => {
       </div>
 
       <CSSTransition
-        in={show}
+        in={showBars}
         timeout={500}
         mountOnEnter
         unmountOnExit
         classNames="os"
       >
-        <ToggleMenu onToggle={onClickHandler} />
+        <ToggleMenu onToggle={showBarsMenu} />
       </CSSTransition>
 
       {
-        show ? <Backdrop onToggle={onClickHandler} /> : null
+        showBars ? <Backdrop onToggle={showBarsMenu} /> : null
       }
 
       {
