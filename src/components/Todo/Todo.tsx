@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import React, { useState } from 'react'
-import { IState, ITodo } from '../../types/types'
+import { IState, ITodoCreator } from '../../types/types'
 import { ChangeColorAC, CompletedClickAC, DeleteTodoAC } from '../../redux/action/TodoAC'
 import TodoItem from '../TodoItem/TodoItem'
 import Portal from '../hoc/Portal/Portal'
@@ -8,8 +8,15 @@ import ModalTodo from '../ModalTodo/ModalTodo'
 import Backdrop from '../UI/Backdrop/Backdrop'
 import './Todo.scss'
 
+type TodoProps = {
+  todo: any,
+  onCompletedClick: (id: number) => void,
+  onDeleteTodo: (id: number) => void,
+  onChangeColor: (id: number, color: string) => void,
+}
 
-const Todo = ({ todo, onCompletedClick, onDeleteTodo, onChangeColor }: any) => {
+
+const Todo = ({ todo, onCompletedClick, onDeleteTodo, onChangeColor }: TodoProps) => {
 
   const [showModal, setShowModal] = useState(false)
 
@@ -17,7 +24,7 @@ const Todo = ({ todo, onCompletedClick, onDeleteTodo, onChangeColor }: any) => {
     setShowModal(prev => !prev)
   }
 
-  const todoItems = todo.map((obj: ITodo) => {
+  const todoItems = todo.map((obj:ITodoCreator) => {
     return <TodoItem onChangeColor={onChangeColor} key={obj.id} onDeleteTodo={onDeleteTodo} onCompletedClick={onCompletedClick} itodo={obj} />
   })
   return (
