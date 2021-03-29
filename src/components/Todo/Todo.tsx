@@ -58,7 +58,7 @@ const Todo = ({ todo, onCompletedClick, onDeleteTodo, onChangeColor }: TodoProps
       <Portal>
         { showCreateModal ? <><ModalTodo onCloseModal={onShowCreateModal} /><Backdrop onToggle={onShowCreateModal} /></> : null }
         {/* { showVieModal ?  <ModalTodo onCloseModal={() => {}} /> : null } */}
-        { showChangedModal ?  modal : null }
+        { showChangedModal ?  <>{ modal }<Backdrop onToggle={closeChangedModal} /></> : null }
       </Portal>
     </div>
   ) 
