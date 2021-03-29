@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { useClickOutside } from '../../../hooks/hooks'
 import './SelectColor.scss'
 
 type SelectorColorProps = {
@@ -12,6 +13,9 @@ const SelectColor = ({ showSelector, onChangeColor, id, onChangeTodoCreatorHandl
   const colorBox: string[] = [
     'red', 'yellow', 'green', 'grey'
   ]
+
+  const manageRef = useRef(null)
+  useClickOutside(manageRef, showSelector)
 
   const onClickChanger = (color: string):void => {
     showSelector()
@@ -28,7 +32,7 @@ const SelectColor = ({ showSelector, onChangeColor, id, onChangeTodoCreatorHandl
   ))
 
   return (
-    <div className="SelectColor">
+    <div ref={manageRef} className="SelectColor">
       { colorBoxJsx }
     </div>
   )
