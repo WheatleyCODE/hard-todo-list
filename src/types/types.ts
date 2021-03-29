@@ -1,14 +1,6 @@
 import * as constants from '../redux/constants/constants'
 
-// Counter
-export interface ICounter {
-  counter: number
-}
-export interface ICounterAction {
-  payload: number
-  type: typeof constants.SUM | typeof constants.SUB | typeof constants.ADD_NUMBER
-}
-
+// Menu
 export type MenuItemElement = {
   path: string,
   icon: string,
@@ -16,7 +8,6 @@ export type MenuItemElement = {
 }
 
 // Todo
-
 export interface ITodo {
   text: string,
   id: number,
@@ -25,8 +16,7 @@ export interface ITodo {
 }
 
 export interface IState {
-  keyOne: ICounter,
-  todo: ITodo
+  todo: ITodoCreator
 }
 
 export interface IAddTodoAC {
