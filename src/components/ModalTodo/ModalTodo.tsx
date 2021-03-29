@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import Input from '../UI/Input/Input'
 import Button from '../UI/Button/Button'
-import './ModalTodo.scss'
 import SelectColor from '../SelectColor/SelectColor'
 import { ITodoCreator } from '../../types/types'
 import { AddToDoAC } from '../../redux/action/TodoAC'
 import { connect } from 'react-redux'
+import './ModalTodo.scss'
 
 type ModalTodoProps = {
-  onClickHandler: () => void
-  onAddTodo?: (newtodo: ITodoCreator) => void
+  onCloseModal: () => void
+  onAddTodo?: (newTodo: ITodoCreator) => void
 }
 
-const ModalTodo = ({ onClickHandler, onAddTodo }: ModalTodoProps) => {
+const ModalTodo = ({ onCloseModal, onAddTodo }: ModalTodoProps) => {
 
   const ItodoCr: ITodoCreator = {
     text: 'Выучить JS',
@@ -26,7 +26,7 @@ const ModalTodo = ({ onClickHandler, onAddTodo }: ModalTodoProps) => {
   const [show, setShow] = useState(false)
   const [todo, setTodo] = useState(ItodoCr)
 
-  const onClickChager = () => {
+  const onToggleColors = () => {
     setShow(prev => !prev)
   }
 
@@ -58,15 +58,15 @@ const ModalTodo = ({ onClickHandler, onAddTodo }: ModalTodoProps) => {
     }))
   }
 
-  const onButtonClickHandler = () => {
+  const onAddTodoButtonHandler = () => {
     if (onAddTodo)
       onAddTodo(todo)
-    onClickHandler()
+      onCloseModal()
   }
 
   return (
     <div className="ModalTodo">
-      <button onClick={onClickHandler} className="ModalTodo__close-button">
+      <button onClick={onCloseModal} className="ModalTodo__close-button">
         <i className="fa fa-times" />
       </button>
       <div className="ModalTodo__header">
@@ -81,18 +81,18 @@ const ModalTodo = ({ onClickHandler, onAddTodo }: ModalTodoProps) => {
         </div>
       </div>
       <div className="ModalTodo__footer">
-      <div onClick={onClickChager} className="TodoItem__color-box">
+      <div onClick={onToggleColors} className="TodoItem__color-box">
       { show ? <SelectColor id={1000} onChangeColor={() => {}} onChangeTodoCreatorHandler={changeColor} onClickHandler={() => {}} /> : null}
           <i className={`fa fa-circle ${todo.color}`} />
         </div>
-        <Button onClickHandler={onButtonClickHandler} size={2} text={'Create Todo'} />
+        <Button onClickHandler={onAddTodoButtonHandler} size={2} text={'Create Todo'} />
       </div>
     </div>
   )
 }
 function mapDispatchToProps(dispatch: any) {
   return {
-    onAddTodo: (newtodo: ITodoCreator) => dispatch(AddToDoAC(newtodo)),
+    onAddTodo: (newTodo: ITodoCreator) => dispatch(AddToDoAC(newTodo)),
 
   }
 }

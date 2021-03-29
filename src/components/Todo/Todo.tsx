@@ -37,7 +37,7 @@ const Todo = ({ todo, onAddTodo, onCompletedClick, onDeleteTodo, onChangeColor }
         </button>
       </div>
       <Portal>
-        { showModal ? <><ModalTodo onClickHandler={onClickHadler} /><Backdrop onToggle={onClickHadler} /></> : null}
+        { showModal ? <><ModalTodo onCloseModal={onClickHadler} /><Backdrop onToggle={onClickHadler} /></> : null}
       </Portal>
     </div>
   ) 
