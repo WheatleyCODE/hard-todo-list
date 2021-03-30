@@ -2,8 +2,8 @@
 @import '../../styles/variables.scss';
 
 .todo {
-  padding-top: 158px;
-  min-height: 70vh;
+  padding-top: 160px;
+  min-height: Calc(100vh - 310px);
   display: flex;
   justify-content: center;
 
