@@ -35,6 +35,7 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, 
 
   const [show, setShow] = useState(false)
   const [todo, setTodo] = useState(ItodoCreation)
+  const [error, setError] = useState('title cannot be empty')
 
   const onToggleColors = () => {
     setShow(prev => !prev)
@@ -45,6 +46,14 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, 
       ...prev,
         text: e.target.value,
     }))
+    if (e.target.value.length < 3) {
+      setError('title должен быть больше 3')
+      if (!e.target.value) {
+        setError('title cannot be empty')
+      }
+    } else {
+      setError('')
+    }
   }
 
   const inputSubTitleChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -82,13 +91,13 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, 
   let button
   let title: string
   if (chengeMod) {
-    button = <Button onClickHandler={onChangeTodoAndClose} size={2} text={'Change Todo'} />
+    button = <Button disabled={!!error} onClickHandler={onChangeTodoAndClose} size={2} text={'Change Todo'} />
     title = 'Change your TODO'
   } else if (vieMod) {
     button = null
     title = 'Vie your TODO'
   } else {
-    button = <Button onClickHandler={onAddTodoButtonHandler} size={2} text={'Create Todo'} />
+    button = <Button disabled={!!error} onClickHandler={onAddTodoButtonHandler} size={2} text={'Create Todo'} />
     title = 'Create your TODO'
   }
 
@@ -102,7 +111,7 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, 
       </div>
       <div className="ModalTodo__main">
         <div className="input-box">
-          <Input disabled={vieMod} changeHadler={inputTitleChangeHandler} value={todo.text} type={'text'} placeholder={'Title todo'} />
+          { vieMod ? <Input disabled={vieMod} changeHadler={inputTitleChangeHandler} value={todo.text} type={'text'} placeholder={'Title todo'} /> : <Input textError={error} isError={!!error} disabled={vieMod} changeHadler={inputTitleChangeHandler} value={todo.text} type={'text'} placeholder={'Title todo'} />}
           <Input disabled={vieMod} changeHadler={inputSubTitleChangeHandler} type={'text'} value={todo.subTitle} placeholder={'Sub title'} />
           <textarea disabled={vieMod} onChange={inputSTextAreaChangeHandler} className="ModalTodo__textarea" value={todo.textArea} />
         </div>

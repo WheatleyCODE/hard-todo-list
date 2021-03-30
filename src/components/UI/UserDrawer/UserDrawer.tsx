@@ -59,7 +59,6 @@ const UserDrawer = ({ onToggle }: userDrawerProps) => {
     }))
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(e.target.value).toLowerCase())) {
-      console.log('Некорректный Email')
       setFormData(prev => ({
         ...prev,
         emailError: 'Некорректный Email'
