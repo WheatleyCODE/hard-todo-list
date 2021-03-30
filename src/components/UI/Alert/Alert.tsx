@@ -14,15 +14,15 @@ const Alert = ({ callBack, onCloseAlert }:AlertProps) => {
       <div className="Alert">
         <CloseButton onCloseClick={onCloseAlert} />
         <div className="Alert__header">
-          <h3>Точно удалить этот todo?</h3>
+          <h3>Delete this todo?</h3>
         </div>
         <div className="Alert__sub-header"></div>
 
         <div className="Alert__main">
         </div>
         <div className="Alert__footer">
-          <Button onClickHandler={onCloseAlert} size={2} text="Отмена" />
-          <Button onClickHandler={callBack} size={2} text="Удалить" />
+          <Button onClickHandler={onCloseAlert} size={2} text="Cansel" />
+          <Button onClickHandler={callBack} size={2} text="Delete" />
         </div>
       </div>
     </div>

@@ -3,20 +3,20 @@ import { IAddTodoAC, ITodoCreator } from './../../types/types';
 
 const initialState: ITodoCreator[] = [
   {
-    text: 'Покушать кашки',
+    text: 'Покушать кашку',
     id: 10,
     color: 'red',
     completed: false,
-    subTitle: 'Hello!',
-    textArea: 'Hello',
+    subTitle: 'Кушать очень важно!',
+    textArea: 'Если не кушать можно умереть =(',
   },
   {
     text: 'Сделать домашку',
     id: 20,
     color: 'green',
     completed: true,
-    subTitle: 'Hello!',
-    textArea: 'Hello',
+    subTitle: 'Математика =(',
+    textArea: 'Очень сложно',
   },
 ]
 

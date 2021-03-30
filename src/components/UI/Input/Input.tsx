@@ -7,11 +7,12 @@ type InputProps = {
   placeholder: string,
   type: string,
   changeHadler?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  disabled?: boolean
 }
 
-const Input = ({type, value, placeholder, changeHadler }:InputProps) => {
+const Input = ({type, value, placeholder, changeHadler, disabled }:InputProps) => {
   return (
-    <input onChange={changeHadler} value={value} placeholder={placeholder} className="input" type={type} />
+    <input disabled={disabled} onChange={changeHadler} value={value} placeholder={placeholder} className="input" type={type} />
   )
 }
 

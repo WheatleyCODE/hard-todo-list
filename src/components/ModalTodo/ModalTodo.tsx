@@ -24,12 +24,12 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, 
     ItodoCreation = IdodoCr
   } else {
     ItodoCreation = {
-      text: 'Выучить JS',
+      text: '',
       id: 1337,
       color: 'red',
       completed: false,
-      subTitle: 'Точно выучить!',
-      textArea: 'Я очень хочу выучить JS потому что я хочу быть Frontend разработчиком и лутать горы бабла'
+      subTitle: '',
+      textArea: ''
     }
   }
 
@@ -79,13 +79,17 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, 
     onCloseModal()
   }
 
-  let button;
+  let button
+  let title: string
   if (chengeMod) {
     button = <Button onClickHandler={onChangeTodoAndClose} size={2} text={'Change Todo'} />
+    title = 'Change your TODO'
   } else if (vieMod) {
     button = null
+    title = 'Vie your TODO'
   } else {
     button = <Button onClickHandler={onAddTodoButtonHandler} size={2} text={'Create Todo'} />
+    title = 'Create your TODO'
   }
 
 
@@ -93,14 +97,14 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, 
     <div className="ModalTodo">
       <CloseButton onCloseClick={onCloseModal} />
       <div className="ModalTodo__header">
-        <h1>Create your TODO</h1>
+        <h1>{title}</h1>
         <div className="ModalTodo__sub-header"></div>
       </div>
       <div className="ModalTodo__main">
         <div className="input-box">
-          <Input changeHadler={inputTitleChangeHandler} value={todo.text} type={'text'} placeholder={'Title todo'} />
-          <Input changeHadler={inputSubTitleChangeHandler} type={'text'} value={todo.subTitle} placeholder={'Sub title'} />
-          <textarea onChange={inputSTextAreaChangeHandler} className="ModalTodo__textarea" value={todo.textArea} />
+          <Input disabled={vieMod} changeHadler={inputTitleChangeHandler} value={todo.text} type={'text'} placeholder={'Title todo'} />
+          <Input disabled={vieMod} changeHadler={inputSubTitleChangeHandler} type={'text'} value={todo.subTitle} placeholder={'Sub title'} />
+          <textarea disabled={vieMod} onChange={inputSTextAreaChangeHandler} className="ModalTodo__textarea" value={todo.textArea} />
         </div>
       </div>
       <div className="ModalTodo__footer">
