@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IState, ITodoCreator } from '../../types/types'
 import { ChangeColorAC, CompletedClickAC, DeleteTodoAC } from '../../redux/action/TodoAC'
 import TodoItem from '../TodoItem/TodoItem'
@@ -21,6 +21,10 @@ const Todo = ({ todo, onCompletedClick, onDeleteTodo, onChangeColor }: TodoProps
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showVieModal, setShowVieModal] = useState(false)
   const [showChangedModal, setShowChangedModal] = useState(false)
+
+  useEffect(() => {
+    console.log('useEffect!')
+  }, [])
 
   const [modal, setModal] = useState(<div />)
 
