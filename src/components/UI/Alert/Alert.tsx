@@ -10,18 +10,20 @@ type AlertProps = {
 
 const Alert = ({ callBack, onCloseAlert }:AlertProps) => {
   return (
-    <div className="Alert">
-      <CloseButton onCloseClick={onCloseAlert} />
-      <div className="Alert__header">
-        <h3>Точно удалить этот todo?</h3>
-      </div>
-      <div className="Alert__sub-header"></div>
+    <div className="container-center">
+      <div className="Alert">
+        <CloseButton onCloseClick={onCloseAlert} />
+        <div className="Alert__header">
+          <h3>Точно удалить этот todo?</h3>
+        </div>
+        <div className="Alert__sub-header"></div>
 
-      <div className="Alert__main">
-      </div>
-      <div className="Alert__footer">
-        <Button onClickHandler={onCloseAlert} size={2} text="Отмена" />
-        <Button onClickHandler={callBack} size={2} text="Удалить" />
+        <div className="Alert__main">
+        </div>
+        <div className="Alert__footer">
+          <Button onClickHandler={onCloseAlert} size={2} text="Отмена" />
+          <Button onClickHandler={callBack} size={2} text="Удалить" />
+        </div>
       </div>
     </div>
   )
