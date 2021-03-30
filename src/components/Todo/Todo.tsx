@@ -21,8 +21,8 @@ const Todo = ({ todo, onCompletedClick, onDeleteTodo, onChangeColor }: TodoProps
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showVieModal, setShowVieModal] = useState(false)
   const [showChangedModal, setShowChangedModal] = useState(false)
-  const [modal, setModal] = useState(<div />)
 
+  const [modal, setModal] = useState(<div />)
 
   const onShowCreateModal = () => {
     setShowCreateModal(prev => !prev)

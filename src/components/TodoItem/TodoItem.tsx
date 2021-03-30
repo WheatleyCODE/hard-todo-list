@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { ITodo } from '../../types/types'
 import SelectColor from '../UI/SelectColor/SelectColor'
+import Alert from '../UI/Alert/Alert'
+import Portal from '../hoc/Portal/Portal'
 import './TodoItem.scss'
+import Backdrop from '../UI/Backdrop/Backdrop'
 
 type TodoItemProps = {
   itodo : ITodo,
@@ -14,9 +17,10 @@ type TodoItemProps = {
 
 const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo, onChangeColor, onShowChangedModal, onShowVieModal }: TodoItemProps) => {
 
-  const style = itodo.completed ? 'completed' : ''
-
   const [show, setShow] = useState(false)
+  const [showAlert, setShowAlert] = useState(false)
+
+  const style = itodo.completed ? 'completed' : ''
 
   const onShowSelector = () => {
     setShow(prev => !prev)
@@ -40,9 +44,13 @@ const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo, onChangeColor, onShow
         <div onClick={() => onShowChangedModal(itodo.id)} className="TodoItem__update-box">
           <i className="fa fa-pencil" />
         </div>
-        <div onClick={() => onDeleteTodo(itodo.id)} className="TodoItem__trash-box">
+        <div onClick={() => setShowAlert(true)} className="TodoItem__trash-box">
           <i className="fa fa-trash-o" />
         </div>
+        <Portal>
+          { showAlert ? <><Alert callBack={() => onDeleteTodo(itodo.id)} onCloseAlert={() => setShowAlert(false)} />
+            <Backdrop onToggle={() => setShowAlert(false)} /></> : null }
+        </Portal>
       </div>
     </div>
   )
