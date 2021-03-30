@@ -5,9 +5,10 @@ type buttonProps = {
   text: string,
   size?: number,
   onClickHandler?: () => void,
+  disabled?: boolean
 }
 
-const Button = ({ text, size, onClickHandler }: buttonProps) => {
+const Button = ({ text, size, onClickHandler, disabled }: buttonProps) => {
   const styles = []
 
   if (size && size <= 3) {
@@ -15,7 +16,7 @@ const Button = ({ text, size, onClickHandler }: buttonProps) => {
     styles.push(sizeName[size])
   }
   return (
-    <button onClick={onClickHandler} className={`${styles.join(' ')} button`}>{text} <i className="fa fa-angle-right" aria-hidden="true"></i></button>
+    <button disabled={disabled} onClick={onClickHandler} className={`${styles.join(' ')} button`}>{text} <i className="fa fa-angle-right" aria-hidden="true"></i></button>
   )
 }
 

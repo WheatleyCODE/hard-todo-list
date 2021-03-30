@@ -16,7 +16,13 @@
   }
 
   &:active {
-    border-color: red;
+    border-color: rgb(247, 47, 47);
+  }
+
+  &:disabled {
+    border-color: $colorLightGrey;
+    background-color: $colorWhite;
+    color: $colorLightGrey;
   }
 }
 
