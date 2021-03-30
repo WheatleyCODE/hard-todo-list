@@ -31,26 +31,6 @@ export const MenuItemList: MenuItemElement[] = [
     text: 'Todo'
   },
   {
-    path: '/red',
-    icon: 'fa fa-circle red',
-    text: 'Red'
-  },
-  {
-    path: '/yellow',
-    icon: 'fa fa-circle yellow',
-    text: 'Yellow'
-  },
-  {
-    path: '/green',
-    icon: 'fa fa-circle green',
-    text: 'Green'
-  },
-  {
-    path: '/grey',
-    icon: 'fa fa-circle grey',
-    text: 'Grey'
-  },
-  {
     path: '/seatings',
     icon: 'fa fa-sliders',
     text: 'Seatings'
