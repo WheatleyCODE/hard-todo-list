@@ -9,10 +9,10 @@
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  // position: relative;
   justify-content: space-between;
 
   span {
+    max-width: 380px;
     font-size: 18px;
     cursor: pointer;
     padding: 10px;
