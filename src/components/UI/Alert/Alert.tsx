@@ -1,4 +1,5 @@
 import React from 'react'
+import CloseButton from '../../ModalTodo/CloseButton/CloseButton'
 import Button from '../Button/Button'
 import './Alert.scss'
 
@@ -10,9 +11,7 @@ type AlertProps = {
 const Alert = ({ callBack, onCloseAlert }:AlertProps) => {
   return (
     <div className="Alert">
-      <button onClick={onCloseAlert} className="ModalTodo__close-button">
-        <i className="fa fa-times" />
-      </button>
+      <CloseButton onCloseClick={onCloseAlert} />
       <div className="Alert__header">
         <h3>Точно удалить этот todo?</h3>
       </div>

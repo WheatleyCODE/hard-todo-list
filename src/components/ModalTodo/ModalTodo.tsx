@@ -6,6 +6,7 @@ import { ITodoCreator } from '../../types/types'
 import { AddToDoAC, ChangeTodoAC } from '../../redux/action/TodoAC'
 import { connect } from 'react-redux'
 import './ModalTodo.scss'
+import CloseButton from './CloseButton/CloseButton'
 
 type ModalTodoProps = {
   vieMod?: boolean
@@ -90,9 +91,7 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, 
 
   return (
     <div className="ModalTodo">
-      <button onClick={onCloseModal} className="ModalTodo__close-button">
-        <i className="fa fa-times" />
-      </button>
+      <CloseButton onCloseClick={onCloseModal} />
       <div className="ModalTodo__header">
         <h1>Create your TODO</h1>
         <div className="ModalTodo__sub-header"></div>
