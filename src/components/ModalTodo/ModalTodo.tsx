@@ -105,7 +105,7 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, 
       </div>
       <div className="ModalTodo__footer">
       <div onClick={onToggleColors} className="TodoItem__color-box">
-      { show ? <SelectColor id={1000} onChangeColor={() => {}} onChangeTodoCreatorHandler={changeColor} showSelector={() => {}} /> : null}
+      { show ? <SelectColor id={1000} onChangeColor={() => {}} onChangeTodoCreatorHandler={changeColor} showSelector={() => setShow(false)} /> : null}
           <i className={`fa fa-circle ${todo.color}`} />
         </div>
       { button }
