@@ -48,7 +48,7 @@ const TodoItem = ({ itodo, onCompletedClick, onDeleteTodo, onChangeColor, onShow
           <i className="fa fa-trash-o" />
         </div>
         <Portal>
-          { showAlert ? <><Alert callBack={() => onDeleteTodo(itodo.id)} onCloseAlert={() => setShowAlert(false)} />
+          { showAlert ? <><Alert todoName={itodo.text} callBack={() => onDeleteTodo(itodo.id)} onCloseAlert={() => setShowAlert(false)} />
             <Backdrop onToggle={() => setShowAlert(false)} /></> : null }
         </Portal>
       </div>
