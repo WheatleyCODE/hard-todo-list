@@ -35,7 +35,7 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, 
 
   const [show, setShow] = useState(false)
   const [todo, setTodo] = useState(ItodoCreation)
-  const [error, setError] = useState('title cannot be empty')
+  const [error, setError] = useState('Title cannot be empty')
 
   const onToggleColors = () => {
     setShow(prev => !prev)
@@ -47,9 +47,9 @@ const ModalTodo = ({ onCloseModal, onAddTodo, chengeMod, IdodoCr, onChangeTodo, 
         text: e.target.value,
     }))
     if (e.target.value.length < 3) {
-      setError('title должен быть больше 3')
+      setError('Title must be more than 3 characters')
       if (!e.target.value) {
-        setError('title cannot be empty')
+        setError('Title cannot be empty')
       }
     } else {
       setError('')

@@ -62,7 +62,7 @@
   }
 
   &__textarea {
-    width: 100%;
+    width: Calc(100% - 12px);
     height: 100px;
     padding: 5px;
     resize: none;

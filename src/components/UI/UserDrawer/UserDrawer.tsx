@@ -61,7 +61,7 @@ const UserDrawer = ({ onToggle }: userDrawerProps) => {
     if (!re.test(String(e.target.value).toLowerCase())) {
       setFormData(prev => ({
         ...prev,
-        emailError: 'Некорректный Email'
+        emailError: 'Invalid email'
       }))
     } else {
       setFormData(prev => ({
@@ -79,7 +79,7 @@ const UserDrawer = ({ onToggle }: userDrawerProps) => {
     if (e.target.value.length < 5) {
       setFormData(prev => ({
         ...prev,
-        passwordError: 'Пароль должен быть больше 5'
+        passwordError: 'Password must be more than 5'
       }))
       if (!e.target.value) {
         setFormData(prev => ({
