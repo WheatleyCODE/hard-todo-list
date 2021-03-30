@@ -50,6 +50,22 @@
     margin-left: 20px;
   }
 
+  &__trash-box, &__update-box, &__color-box {
+    &:hover {
+      background-color: $colorGrey;
+      transition: all 0.2s;
+    }
+  }
+
+  &__trash-box, &__update-box {
+    &:hover {
+
+      i {
+        color: $colorLightBlue;
+      }
+    }
+  }
+
   &__button-container {
     display: flex;
     margin-right: 20px;
