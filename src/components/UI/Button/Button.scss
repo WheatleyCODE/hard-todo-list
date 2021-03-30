@@ -2,10 +2,11 @@
 @import '../../../styles/variables.scss';
 .button {
   @include ButtonDiv;
+  color: $colorGrey;
   background-color: $colorLightBlue;
   border: 2px solid $colorLightBlue;
   padding: 10px 30px;
-  border-radius: 5px;
+  border-radius: 2px;
   font-size: 30px;
   transition: all 0.5s;
 
