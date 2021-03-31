@@ -1,5 +1,4 @@
 import * as constants from '../redux/constants/constants'
-
 // Menu
 export type MenuItemElement = {
   path: string,
@@ -17,6 +16,16 @@ export interface ITodo {
 
 export interface IState {
   todo: ITodoCreator
+  exp : IExp
+}
+
+export interface IExp {
+  loading: false,
+  todo: ITodoServer[]
+}
+export interface ITodoServer {
+  title: string
+  completed: boolean
 }
 
 export interface IAddTodoAC {
@@ -29,4 +38,9 @@ export interface IAddTodoAC {
 export interface ITodoCreator extends ITodo {
   subTitle: string
   textArea: string
+}
+
+export interface IExpAC {
+  response: ITodoServer[]
+  type: typeof constants.FETCH_START | typeof constants.FETCH_SUCCESS | typeof constants.FETCH_ERROR
 }

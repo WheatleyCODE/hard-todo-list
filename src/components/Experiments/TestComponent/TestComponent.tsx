@@ -5,8 +5,6 @@ const TestComponent = () => {
 
   const context = useContext(ExpContext)
 
-  console.log(context)
-
   return (
     <div>
       { context.show ? <h1>TestComponent</h1> : null }

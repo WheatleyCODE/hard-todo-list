@@ -2,14 +2,18 @@ import React from 'react'
 import { useLogger, useInput } from '../../hooks/hooks'
 import { ExpProvider } from './ExpContext/ExpContext'
 import './Experiments.scss'
+import ExpReduxThunk from './ExpReduxThunk/ExpReduxThunk'
 import TestComponent from './TestComponent/TestComponent'
 
 const Experiments = () => {
+  // const dataBaseUrl = 'https://remember-5b76f-default-rtdb.firebaseio.com/'
+
 
   const inputOne = useInput('', 'Введите Email', 'email')
   const inputTwo = useInput('', 'Введите Password', 'password')
   // const inputThree = useInput('')
   // const inputFore = useInput('')
+  useLogger(inputTwo.validError)
 
   return (
     <div className="Experiments">
@@ -32,6 +36,11 @@ const Experiments = () => {
         <ExpProvider>
           <TestComponent />
         </ExpProvider>
+      </div>
+
+      <div className="exp-container">
+        <h3 className="sub-title">{'Client <---> Server reduxThunk'}</h3>
+        <ExpReduxThunk />
       </div>
     </div>
   ) 
