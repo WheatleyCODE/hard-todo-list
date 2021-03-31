@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Home from '../Home/Home'
-import Seatings from '../Seatings/Seatings'
+import Experiments from '../Experiments/Experiments'
 import Todo from '../Todo/Todo'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/todo" component={Todo}/>
-        <Route path='/seatings' component={Seatings}/>
+        <Route path='/experiments' component={Experiments}/>
         <Route path="/" exact component={Home}/>
         <Redirect to="/" />
       </Switch>

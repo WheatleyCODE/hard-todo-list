@@ -31,8 +31,8 @@ export const MenuItemList: MenuItemElement[] = [
     text: 'Todo'
   },
   {
-    path: '/seatings',
+    path: '/experiments',
     icon: 'fa fa-sliders',
-    text: 'Seatings'
+    text: 'Experiments'
   },
 ]
