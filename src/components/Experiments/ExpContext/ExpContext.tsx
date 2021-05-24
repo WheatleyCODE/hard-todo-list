@@ -15,3 +15,9 @@ export const ExpProvider = ({ children }: any) => {
     </ExpContext.Provider>
   )
 }
+
+//////////////// Применение
+
+// {/* <ExpProvider>
+//   <App />
+// </ExpProvider> */}
